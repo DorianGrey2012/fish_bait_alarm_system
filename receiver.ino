@@ -1,9 +1,7 @@
 /*
- * Anthony VH - November 2013
- * Receiver for the wireless quiz buttons.
- *
+ * 
  * Using nRF24L01 library for RF interface.
- * See: https://github.com/aaronds/arduino-nrf24l01
+ 
  */
 
 #include <SPI.h>
@@ -38,8 +36,7 @@ void setup()
   // Set the payload length to sizeof(byte)
   Mirf.payload = sizeof(byte);
 
-  // we use channel 90 as it is outside of WLAN bands
-  // or channels used by wireless surveillance cameras
+  
   Mirf.channel = 90;
 
   Mirf.config();
@@ -62,13 +59,6 @@ void loop()
     // Load the packet into the buffer.
     Mirf.getData(data);
 
-    // Output result
-    //Serial.print("[Receiver] Pushed: Button ");
-    //Serial.println(data[0]);
-
-    // Press enter
-    //Keyboard.write('0' + data[0] + 1);
-    //Keyboard.write(KEY_RETURN);
 
     char receivedID = '0' + data[0] + 1;
       switch(receivedID)
